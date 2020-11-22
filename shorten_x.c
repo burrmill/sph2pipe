@@ -22,6 +22,9 @@
  *
  */
 
+#define _XOPEN_SOURCE 500 /* See feature_test_macros(7) */
+#include <unistd.h>
+
 #include "sph_convert.h"
 #include "bitshift.h"
 #include "ulaw.h"

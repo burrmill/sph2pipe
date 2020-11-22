@@ -1,14 +1,14 @@
 # GNU make Makefile for sph2pipe
 
 SRC = file_headers.c shorten_x.c sph2pipe.c
-CCFLAGS += -Wno-implicit-function-declaration -Wno-implicit-int -Wno-write-strings
+HDR = bitshift.h sph_convert.h ulaw.h
 
 .PHONY: all check clean distclean
 
 all: sph2pipe
 
-sph2pipe: $(SRC)
-	$(CC) -o sph2pipe -s -O2 $(CCFLAGS) $(SRC)
+sph2pipe: $(SRC) $(HDR)
+	$(CC) -o sph2pipe -s -w -g -O2 $(CCFLAGS) $(SRC) -lm
 
 # Tests are very noisy and do not output anything sensibe.
 check: sph2pipe

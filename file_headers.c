@@ -6,8 +6,12 @@
  *		write RIFF, AU, AIFF headers
  */
 
-#include "sph_convert.h"
+#define _XOPEN_SOURCE 500  /* See feature_test_macros(7) */
 #include <math.h>
+#include <string.h>
+#include <unistd.h>
+
+#include "sph_convert.h"
 
 static char hdr[90];
 static int hdrsize, origSampcount;
@@ -576,7 +580,7 @@ void writeRIFFHeader( void )
 
 #define FloatToUnsigned(f) ((unsigned long)(((long)(f - 2147483648.0)) + 2147483647L + 1))
 
-ConvertToIeeeExtended(num, bytes)
+int ConvertToIeeeExtended(num, bytes)
 double num;
 char *bytes;
 {

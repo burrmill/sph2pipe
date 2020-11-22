@@ -102,6 +102,9 @@
  */
 
 #define _SPH_CONVERT_MAIN_
+#define _XOPEN_SOURCE 500  /* See feature_test_macros(7) */
+#include <string.h>
+#include <unistd.h>
 
 #include "sph_convert.h"
 #include "ulaw.h"

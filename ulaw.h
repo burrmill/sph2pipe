@@ -82,3 +82,6 @@ GLOBAL short int alaw2pcm[256]
 }
 #endif
 ;
+
+uchar pcm2ulaw( short int sample );
+uchar pcm2alaw( short int pcmval );
